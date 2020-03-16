@@ -6,14 +6,14 @@
     <title>Document</title>
 </head>
 <body>
-    <button onClick="seila()">Salvar</button>
+    <button onClick="acertenumero()">Salvar</button>
     <input type="password" name="" id="numero1" placeholder=" Digite número">  
     <input type="text" name="" id="numero2" placeholder="Digite número" > 
     <ul id = "ul"></ul> 
     <script>
         var tentativas = 0
         var game = true
-        function seila()
+        function acertenumero()
         {
             if (game){
               tentativas++
