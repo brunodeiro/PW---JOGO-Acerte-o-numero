@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onClick="seila()">Salvar</button>
+    <input type="password" name="" id="numero1" placeholder=" Digite número">  
+    <input type="text" name="" id="numero2" placeholder="Digite número" > 
+    <ul id = "ul"></ul> 
+    <script>
+        var tentativas = 0
+        var game = true
+        function seila()
+        {
+            if (game){
+              tentativas++
+             var numero1 = document.getElementById("numero1")
+             var numero2 = document.getElementById("numero2")
+             var ul = document.getElementById("ul")
+             var li = document.createElement("li")
+
+             if (Number(numero1.value) > Number(numero2.value)){
+                //console.log('primeiro '+numero1.value+', '+ numero2.value)
+                 li.innerHTML = numero2.value+" Valor menor"
+                 ul.appendChild(li)
+             }
+             if (Number(numero1.value) < Number(numero2.value)){
+                //console.log('segundo '+numero1.value+', '+ numero2.value)
+                 li.innerHTML = numero2.value+" Valor maior"
+                 ul.appendChild(li)
+             }
+             if (Number(numero1.value) == Number(numero2.value)){
+                //console.log(numero1.value+', '+ numero2.value)
+                 li.innerHTML = numero1.value+" Você acertou! apôs :"+tentativas+" Tentativas"
+                 ul.appendChild(li)
+                 console.log(tentativas)
+                 game = false // ao finalizar o game não vai ser executado o bloco if
+                
+             }  
+            }
+            
+        }
+    </script>
+</body>
+</html>
