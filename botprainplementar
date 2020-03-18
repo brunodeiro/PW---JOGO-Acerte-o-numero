@@ -1,0 +1,5 @@
+var input = document.getElementById('numero2')
+var alvo = document.getElementById('numero1')
+while(alvo.value != input.value){
+    input.value = Math.floor(Math.random()*50)
+    document.getElementsByTagName('button')[0].click()}
