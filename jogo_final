@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<style>
+		body{
+			display: flex;
+			justify-content: center;
+			align-items :center;
+			height: 600px
+		}
+		#jogo {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="setting">
+		<h3>Quantos jogadores?</h3>
+		<input id="comSemBot" type="number" min="1" max="2">
+		<button onClick="comSemBot()">Enviar</button>
+	</div>
+	<div id="jogo">
+		<button id="salvara" onClick="acertenumero()">Salvar</button>
+		<input type="password" name="" id="numero1" placeholder=" Digite número">  
+		<input type="text" name="" id="numero2" placeholder="Digite número" > 
+		<ul id = "ul"></ul> 
+	</div>
+    <script>
+		var player1 = [1,0]
+		var player2 = [2,0]
+		var player = player1
+        var game = true
+		function comSemBot(){
+			if(document.getElementById('comSemBot').value == '1'){
+				player2[0]='bot'
+			}
+			document.getElementById('setting').style.display = 'none'
+			document.getElementById('jogo').style.display = 'block'
+		}
+		function bot(){
+			console.log('bot jogando')
+			var input = document.getElementById('numero2')
+			var alvo = document.getElementById('numero1')
+			input.value = Math.floor(Math.random()*Number(alvo.value)+1)
+			document.getElementById('salvara').click()
+			//acertenumero()
+			input.value = ''
+		}
+        function acertenumero()
+        {
+            if (game){
+				 var numero1 = document.getElementById("numero1")
+				 var numero2 = document.getElementById("numero2")
+				 var ul = document.getElementById("ul")
+				 var li = document.createElement("li")
+
+				 if (Number(numero1.value) > Number(numero2.value)){
+					//console.log('primeiro '+numero1.value+', '+ numero2.value)
+					 li.innerHTML = numero2.value+" Valor menor"
+					 ul.appendChild(li)
+					 numero2.value = ''
+				 }
+				 if (Number(numero1.value) < Number(numero2.value)){
+					//console.log('segundo '+numero1.value+', '+ numero2.value)
+					 li.innerHTML = numero2.value+" Valor maior"
+					 ul.appendChild(li)
+					 numero2.value = ''
+				 }
+				 if (Number(numero1.value) == Number(numero2.value)){
+					//console.log(numero1.value+', '+ numero2.value)
+					 li.innerHTML = numero1.value+" Você acertou, player "+player[0]+"! após "+(player[1]+1)+" Tentativas"
+					 ul.appendChild(li)
+					 game = false // ao finalizar o game não vai ser executado o bloco if
+					
+				 }
+				 if(player == player1){
+					player1[1]++
+					player = player2
+					if(player[0]=='bot'){
+						bot()
+					}
+				 }else{
+					player2[1]++
+					player = player1
+				 }
+            }
+            
+        }
+    </script>
+</body>
+</html>
