@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="CSS/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <title>Acerte o Numero</title>
+</head>
+
+<body>
+    <!-- MENU INICIAL -->
+    <div id="menu">
+        <div id="titulo">
+            <h1>JOGO: Acerte o número!</h1>
+        </div>    
+
+        <div id="info">
+            <div id="nome">
+                <input id="inputNome" placeholder="Digite o seu nome" type="text"/> 
+            </div> 
+
+            <div id="jogar">
+                <button onclick="jogar1()">1 JOGADOR</button>
+                <button onclick="jogar2()">2 JOGADORES</button>
+            </div>
+        </div>    
+    </div>    
+
+    <!-- JOGO -->
+    <div id="jogo"></div>
+
+    <div id="resp">
+        <ul id = "ul"></ul> 
+    </div>
+
+
+    <!-- RANKING -->
+    <div id="divTabela"></div>
+    
+
+</body>
+<script type="text/javascript" src="js/script.js"></script>
+</html>
